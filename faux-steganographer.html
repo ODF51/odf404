@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steganography Analyzer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    input[type="file"] {
+      margin: 20px 0;
+      padding: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .output {
+      margin-top: 30px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      text-align: left;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 0.9em;
+      color: #444;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Steganography Analyzer</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="analyzeImage()">Analyze</button>
+
+    <div class="output" id="output">
+      No data extracted.
+    </div>
+
+    <div class="footer">Version 1.0.0 - © 2025</div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function analyzeImage() {
+      const fileInput = document.getElementById("imageInput");
+      if (!fileInput.files.length) {
+        output.innerHTML = "No file selected.";
+        return;
+      }
+
+      const fileName = fileInput.files[0].name;
+      output.innerHTML = `Analyzing file: ${fileName}...<br><br>`;
+
+      setTimeout(() => {
+        output.innerHTML += "Scanning pixels...<br>";
+      }, 1000);
+
+      setTimeout(() => {
+        output.innerHTML += "Analyzing metadata...<br>";
+      }, 2000);
+
+      setTimeout(() => {
+        output.innerHTML += "Hidden data detected.<br><br>";
+      }, 3000);
+
+      setTimeout(() => {
+        output.innerHTML += `
+        Extracted message:<br><br>
+        ------------------------------<br>
+        PHASE TWO:
+        COORDINATES: 47°19'43.1"N 5°03'04.0"E<br>
+        HEURE:21H
+        ------------------------------<br>
+        `;
+      }, 4500);
+    }
+  </script>
+
+</body>
+</html>

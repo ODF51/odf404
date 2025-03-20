@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SECTION 51 - Accès Restreint</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333333;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 400px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #111111;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: #555555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      background-color: #fafafa;
+      font-size: 1em;
+      color: #333333;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #555555;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #111111;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #333333;
+    }
+
+    .error {
+      color: #ff4d4d;
+      font-size: 0.85em;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.75em;
+      color: #aaaaaa;
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 30px auto;
+      width: 80px;
+      height: 80px;
+      background: url('images/section51-logo.png') no-repeat center center;
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+
+    <h1>SECTION 51<br>ACCÈS RESTREINT</h1>
+
+    <form id="loginForm">
+      <label for="login">Identifiant</label>
+      <input type="text" id="login" name="login" autocomplete="off" required>
+
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" autocomplete="off" required>
+
+      <button type="submit">Connexion</button>
+    </form>
+
+    <div class="error" id="errorMsg"></div>
+
+    <div class="footer">
+      © 2025 Section 51. Confidential.
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const login = document.getElementById('login').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (login === 'veil' && password === 'fracture51') {
+        window.location.href = 'acces-confirme.html';
+      } else {
+        errorMsg.textContent = 'Accès refusé. Identifiants incorrects.';
+      }
+    });
+  </script>
+
+</body>
+</html>

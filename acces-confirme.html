@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SECTION 51 - Accès Confirmé</title>
+  
+  <!-- Import Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    /* LOGO SECTION 51 */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .triangle-outline {
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 25px solid #ffffff;
+      position: relative;
+    }
+
+    .triangle-outline::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: -12px;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 19px solid #000000;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    #countdown {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 40px 0;
+      letter-spacing: 2px;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.75em;
+      color: #888888;
+      letter-spacing: 1px;
+    }
+
+    .button-contact {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 30px;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1em;
+      letter-spacing: 1px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .button-contact:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- LOGO + SECTION 51 -->
+    <div class="logo-container">
+      <div class="triangle-outline"></div>
+      <h1>SECTION 51</h1>
+    </div>
+
+    <p>Félicitations.<br> Peu ont franchi la première barrière.</p>
+
+    <p>Votre persévérance et discernement vous distinguent des autres.</p>
+
+    <p>Nous recherchons des individus capables de voir au-delà de l'illusion.</p>
+
+    <p>La prochaine phase du protocole <strong>VEIL</strong> commencera sous peu.</p>
+
+    <!-- COMPTE À REBOURS -->
+    <div id="countdown">00d 00h 00m 00s</div>
+
+    <p>Restez discret.<br> Ne partagez pas ce que vous avez découvert.</p>
+
+    <p style="margin-top: 40px; color: #888888;">- Le Messager</p>
+
+    <p style="margin-top: 60px;">Canal sécurisé établi :</p>
+    
+    <p><strong><a href="https://t.me/+17pvS7AyPolmNWVk" target="_blank">https://t.me/+17pvS7AyPolmNWVk</a></strong></p>
+
+    <p style="color: #ff4d4d; font-weight: bold;">ATTENTION : Ce canal est strictement privé.<br> Toute diffusion non autorisée entraînera des sanctions immédiates.</p>
+
+    <div class="footer">S51-PROTOCOL // INITIATED</div>
+
+  </div>
+
+  <script>
+    // Départ = maintenant
+    const now = new Date().getTime();
+    // Fin = maintenant + 24 heures (en millisecondes)
+    const countDownDate = now + (24 * 60 * 60 * 1000);
+
+    const countdownFunction = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const distance = countDownDate - currentTime;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "PHASE 2 ACTIVÉE";
+        // Optionnel : redirection automatique à la fin
+        // window.location.href = "phase2.html";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
